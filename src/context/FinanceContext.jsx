@@ -33,30 +33,38 @@ export function FinanceProvider({ children }) {
     document.documentElement.classList.toggle("dark", theme === "dark");
   }, [theme]);
 
+  // ✅ Add Transaction (normalized category)
   const addTransaction = (newTransaction) => {
-  setTransactions((prev) => [
-    {
-      id: Date.now(),
-      ...newTransaction,
-    },
-    ...prev,
-  ]);
-};
+    setTransactions((prev) => [
+      {
+        id: Date.now(),
+        ...newTransaction,
+        category: newTransaction.category?.toLowerCase().trim(),
+      },
+      ...prev,
+    ]);
+  };
 
-const deleteTransaction = (id) => {
-  setTransactions((prev) =>
-    prev.filter((item) => item.id !== id)
-  );
-};
+  // ✅ Delete Transaction
+  const deleteTransaction = (id) => {
+    setTransactions((prev) =>
+      prev.filter((item) => item.id !== id)
+    );
+  };
 
+  // ✅ FIXED FILTER LOGIC
   const filteredTransactions = useMemo(() => {
     return transactions.filter((item) => {
       const matchesSearch = item.description
-        .toLowerCase()
+        ?.toLowerCase()
         .includes(search.toLowerCase());
 
       const matchesCategory =
-        categoryFilter === "all" || item.category === categoryFilter;
+        categoryFilter === "all" ||
+        item.category
+          ?.toLowerCase()
+          .trim()
+          .includes(categoryFilter.toLowerCase().trim());
 
       return matchesSearch && matchesCategory;
     });
