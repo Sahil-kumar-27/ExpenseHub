@@ -39,39 +39,41 @@ function Transactions() {
 
         <TransactionTable transactions={paginatedTransactions} />
 
-        {/* Pagination */}
-        <div className="flex items-center justify-between rounded-xl border bg-card p-4">
-          <button
-            onClick={goToPrev}
-            disabled={currentPage === 1}
-            className="rounded-lg border px-4 py-2 disabled:opacity-50"
-          >
-            Previous
-          </button>
+        {/* Responsive Pagination */}
+        <div className="rounded-xl border bg-card p-4">
+          <div className="flex items-center justify-between gap-3 overflow-x-auto">
+            <button
+              onClick={goToPrev}
+              disabled={currentPage === 1}
+              className="rounded-lg border px-4 py-2 shrink-0 disabled:opacity-50"
+            >
+              Previous
+            </button>
 
-          <div className="flex items-center gap-2">
-            {Array.from({ length: totalPages }, (_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentPage(index + 1)}
-                className={`rounded-lg px-3 py-2 border ${
-                  currentPage === index + 1
-                    ? "bg-primary text-primary-foreground"
-                    : "bg-card"
-                }`}
-              >
-                {index + 1}
-              </button>
-            ))}
+            <div className="flex items-center gap-2 min-w-max">
+              {Array.from({ length: totalPages }, (_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentPage(index + 1)}
+                  className={`rounded-lg px-3 py-2 border shrink-0 ${
+                    currentPage === index + 1
+                      ? "bg-primary text-primary-foreground"
+                      : "bg-card"
+                  }`}
+                >
+                  {index + 1}
+                </button>
+              ))}
+            </div>
+
+            <button
+              onClick={goToNext}
+              disabled={currentPage === totalPages}
+              className="rounded-lg border px-4 py-2 shrink-0 disabled:opacity-50"
+            >
+              Next
+            </button>
           </div>
-
-          <button
-            onClick={goToNext}
-            disabled={currentPage === totalPages}
-            className="rounded-lg border px-4 py-2 disabled:opacity-50"
-          >
-            Next
-          </button>
         </div>
       </section>
     </DashboardLayout>
