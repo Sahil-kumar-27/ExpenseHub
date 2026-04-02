@@ -8,11 +8,11 @@ function Sidebar({ mobile = false, onClose, theme = "dark" }) {
         : ""
     }`;
 
-  
+  // ✅ FIXED PATH
   const logoSrc =
     theme === "dark"
-      ? "../../../public/logoDark.png"  
-      : "../../../public/logoLight.png";
+      ? "/logoDark.png"
+      : "/logoLight.png";
 
   return (
     <aside
