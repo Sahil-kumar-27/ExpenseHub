@@ -3,9 +3,6 @@
 A modern **Finance Dashboard web app** built with **React, Vite, JavaScript, Tailwind CSS, shadcn/ui, Context API, and Recharts**.
 
 This project was created as a **frontend assignment-ready SaaS-style dashboard** with clean UI, smooth UX, responsive layout, dark/light theme, Indian finance mock data, role-based access, and localStorage persistence.
-
-It is designed to demonstrate strong frontend development skills in a way that feels **student-built, practical, and production-inspired**.
-
 ---
 
 ## ✨ Features
