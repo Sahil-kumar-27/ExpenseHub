@@ -15,9 +15,9 @@ function Navbar({ onMenuClick }) {
         style={{ backgroundColor: "var(--topbar)" }}
       >
         <div className="flex flex-col gap-4 px-4 py-4 sm:px-6">
-          {/* Top Row */}
+         
           <div className="flex items-center justify-between">
-            {/* Left */}
+           
             <div className="flex items-center gap-3">
               <button
                 onClick={onMenuClick}
@@ -31,7 +31,7 @@ function Navbar({ onMenuClick }) {
               </h1>
             </div>
 
-            {/* Mobile Right Controls */}
+           
             <div className="flex items-center gap-2 md:hidden">
               <select
                 value={role}
@@ -54,7 +54,7 @@ function Navbar({ onMenuClick }) {
               </Button>
             </div>
 
-            {/* Desktop Right Controls */}
+           
             <div className="hidden items-center gap-3 md:flex">
               <Button
                 variant="outline"
@@ -82,7 +82,7 @@ function Navbar({ onMenuClick }) {
             </div>
           </div>
 
-          {/* Mobile Add Transaction */}
+         
           {role === "admin" && (
             <div className="md:hidden">
               <Button

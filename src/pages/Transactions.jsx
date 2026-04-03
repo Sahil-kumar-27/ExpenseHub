@@ -39,7 +39,7 @@ function Transactions() {
 
         <TransactionTable transactions={paginatedTransactions} />
 
-        {/* Responsive Pagination */}
+      
         <div className="rounded-xl border bg-card p-4">
           <div className="flex items-center justify-between gap-3 overflow-x-auto">
             <button

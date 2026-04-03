@@ -19,7 +19,7 @@ export function FinanceProvider({ children }) {
   const [search, setSearch] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("all");
 
-  // ✅ Theme state
+
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem("theme") || "light";
   });
@@ -33,7 +33,7 @@ export function FinanceProvider({ children }) {
     document.documentElement.classList.toggle("dark", theme === "dark");
   }, [theme]);
 
-  // ✅ Add Transaction (normalized category)
+  
   const addTransaction = (newTransaction) => {
     setTransactions((prev) => [
       {
@@ -45,14 +45,14 @@ export function FinanceProvider({ children }) {
     ]);
   };
 
-  // ✅ Delete Transaction
+ 
   const deleteTransaction = (id) => {
     setTransactions((prev) =>
       prev.filter((item) => item.id !== id)
     );
   };
 
-  // ✅ FIXED FILTER LOGIC
+ 
   const filteredTransactions = useMemo(() => {
     return transactions.filter((item) => {
       const matchesSearch = item.description

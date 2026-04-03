@@ -48,18 +48,10 @@ function Dashboard() {
     };
   }, [transactions]);
 
-  // ✅ Insights variables should be here
-  const highestCategory = "Shopping";
-  const monthlyComparison = "12% lower than last month";
-
-  const averageTransaction = Math.round(
-    transactions.reduce((sum, item) => sum + item.amount, 0) /
-      transactions.length,
-  );
 
   return (
     <DashboardLayout>
-      {/* Summary Cards */}
+    
       <section className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 mb-8">
         <SummaryCard
           title="Total Balance"
@@ -78,7 +70,7 @@ function Dashboard() {
         />
       </section>
 
-      {/* Charts */}
+     
       <section className="grid gap-6 grid-cols-1 xl:grid-cols-2">
         <BalanceChart data={monthlyData} />
         <ExpenseChart data={categoryData} />
