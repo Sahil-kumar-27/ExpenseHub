@@ -8,7 +8,7 @@ function Sidebar({ mobile = false, onClose, theme = "dark" }) {
         : ""
     }`;
 
-  // ✅ FIXED PATH
+
   const logoSrc =
     theme === "dark"
       ? "/logoDark.png"
@@ -20,7 +20,7 @@ function Sidebar({ mobile = false, onClose, theme = "dark" }) {
         mobile ? "w-full" : "h-screen w-72 sticky top-0"
       } border-r border-border bg-sidebar px-5 py-6 transition-colors duration-300`}
     >
-      {/* 🔥 LOGO */}
+      
       <div className="mb-8 flex items-center justify-center">
         <img
           src={logoSrc}
